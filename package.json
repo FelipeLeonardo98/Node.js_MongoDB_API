@@ -1,0 +1,27 @@
+{
+  "name": "node.js_mongodb_api",
+  "version": "1.0.0",
+  "description": "Alterar a descrição depois",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelipeLeonardo98/Node.js_MongoDB_API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelipeLeonardo98/Node.js_MongoDB_API/issues"
+  },
+  "homepage": "https://github.com/FelipeLeonardo98/Node.js_MongoDB_API#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
