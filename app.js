@@ -23,8 +23,26 @@ mongoose.connect('mongodb://localhost/tutorialcelke', {
 
 
 app.get("/", (req, res) => {
-    return res.json({ titulo: "Como criar API" });
+    Artigo.find({}).then((artigo) => {
+        return res.json(artigo);
+    }).catch((error) => {
+        return res.status(400).json({
+            error: true,
+            message: "Nenhum artigo encontrado"
+        });
+    })
 });
+
+app.get("/artigo/:id", (req, res) => {
+    Artigo.findOne({ _id: req.params.id }).then((artigo) => {
+        return res.json(artigo);
+    }).catch((error) => {
+        return res.status(400).json({
+            error: true,
+            message: `Artigo com id ${req.params.id} não localizado`
+        })
+    })
+})
 
 app.post("/artigo", (req, res) => {
     const artigo = Artigo.create(req.body, (error) => {
@@ -37,6 +55,20 @@ app.post("/artigo", (req, res) => {
             message: "Artigo foi cadastrado com sucesso!"
         })
     })
+});
+
+app.put("/artigo/:id", (req, res) => {
+    const artigo = Artigo.updateOne({ _id: req.params.id }, req.body, (error) => {
+        if (error) return res.status(400).json({
+            error: true,
+            message: `Erro ao editar o Artigo: ${error}`
+        });
+
+        return res.json({
+            error: false,
+            message: `Artigo com id ${req.params.id} editado com sucesso`
+        });
+    });
 });
 
 app.listen(8080, () => {
