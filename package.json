@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/FelipeLeonardo98/Node.js_MongoDB_API#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.10.3"
   },
